@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" 
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+ layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Convidados</title>
+</head>
+<body>
+	<section class="container" layout:fragment="content">
+	<h3 class="page-header">Cadastro de Convidado</h3>
+	<th:block th:include="sucess"></th:block>
+	<form role="form" method="POST" th:object="${convidado}"
+	th:action="@{/convidados/salvar}">
+	<div class="panel panel-default">
+		<div class="panel-heading">Filtro</div>
+		
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label class="control-label" for="codigo">Código: </label>
+						<input class="form-control" id="codigo" th:field="*{id}"/>
+					</div>
+				</div>
+				<div class="col-sm-8">
+					<div class="form-group">
+						<label class="control-label" for="nome">Nome: </label>
+						<input class="form-control" id="nome" th:field="*{nome}"/>
+					</div>
+				</div>
+				<input id="id" th:field="*{id}" type="hidden"/>
+			</div>
+			<div class="form-group">
+				<!-- <a class="btn btn-primary" th:href="@{/convidados/salvar}">
+					<span class="fa fa-plus"></span>Adicionar
+				</a>-->
+				<button type="submit">Adicionar</button>
+			</div>
+		</div>
+	</div>
+	</form>
+	</section>
+</body>
+</html>
